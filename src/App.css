@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset e corpo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background-color: #f5f6fa;
+  color: #333;
+}
+
+/* Header */
+.headercontent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: linear-gradient(139deg, #0D1164, #29A19C);
+  border-bottom: 3px solid #0D1164;
+  box-shadow: 0 2px 10px rgba(13, 17, 100, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headercontent h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.headercontent span {
+  color: #29a151;
+}
+
+.headercontent nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.headercontent nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.headercontent nav ul li a:hover {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+/* Main content */
+.main-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Seções */
+section {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid #0D1164;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  border-left: 5px solid #060fbd;
+  padding: 3rem;
+  box-shadow: 0 6px 15px rgba(0, 38, 255, 0.25);
+}
+
+/* Títulos */
+section header h2 {
+  color: #0D1164;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+section h3 {
+  color: #29A19C;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+
+/* Parágrafos */
+section p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Listas */
+section ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+section ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+section ul li::before {
+  content: '•';
+  color: #29A19C;
+  font-weight: bold;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
+}
+
+section ul li:hover {
+  transform: translateX(3px);
+  color: #0D1164;
+  font-weight: 600;
+}
+
+/* Welcome section destaque */
+.welcome-section {
+  border-left: 5px solid #29A19C;
+  background: #eafafa;
+}
+
+/* Header do formulário */
+.main-header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.main-header h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Container do formulário */
+.form-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.form-container h1 {
+  text-align: center;
+  color: #0D1164;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+/* Formulário Edital */
+.edital-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.edital-form:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Labels e campos */
+.edital-form label {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+.edital-form .input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid #29A19C;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.edital-form .input:focus {
+  border-color: #0DFFAD;
+  box-shadow: 0 0 8px rgba(13, 255, 173, 0.5);
+  outline: none;
+}
+
+.edital-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid #29A19C;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.edital-form textarea:focus{
+  border-color: #0DFFAD;
+  box-shadow: 0 0 8px rgba(13, 255, 173, 0.5);
+  outline: none;
+}
+
+/* Fieldset e radio */
+.radiofieldset {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #29A19C;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.radiofieldset legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+.radiofieldset input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.fieldset {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #29A19C;
+  border-radius: 8px;
+}
+
+.fieldset input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid #29A19C;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.fieldset input:focus {
+  border-color: #0DFFAD;
+  box-shadow: 0 0 8px rgba(13, 255, 173, 0.5);
+  outline: none;
+}
+
+/* Botão enviar */
+.edital-form button {
+  background: linear-gradient(90deg, #29A19C, #0DFFAD);
+  color: #12192B;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.edital-form button:hover {
+  background: linear-gradient(90deg, #0DFFAD, #29A19C);
+  transform: translateY(-2px);
+}
+
+/* Feedback de sucesso */
+.success-msg {
+  margin-top: 1rem;
+  color: #0DFFAD;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.linkdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #0DFFAD, #29A19C);
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  max-width: 8rem;
+  transition: all 0.7s ease;
+}
+
+.editallink {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+}
+
+.linkdiv:hover {
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  max-width: 9rem;
+  border: 2px solid #0d6eff;
+  box-shadow:0px 0px 6px #060fbd;
+}
