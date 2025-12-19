@@ -12,40 +12,27 @@ app.use(express.json());
 app.post("/edital", async (req, res) => {
     const data = req.body;
 
-   try {
-    await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            content: `
->📋 **Novo envio de formulário HP** 📋
->
->👤 **Nome:** ${data.nome}
->
->🛂 **Passaporte:** ${data.passaporte}
->
->🎂 **Idade:** ${data.idade}
->
->💬 **Discord:** ${data.discord}
->
->🏙️ **Tempo na cidade:** ${data.tempoCidade}
->
->📚 **Conhecimentos:** ${data.conhecimentos}
->
->🛎️ **Atendimento:** ${data.atendimento}
->
->💼 **Experiência:** ${data.experiencia}
->
->🎙️ **Microfone:** ${data.microfone}
->
->⏰ **Tempo disponível:** ${data.tempoDisponivel}
->
->🚗 **CNH:** ${data.cnh}
->
->🗓️ **Períodos:** ${data.periodos}
-            `
-        }),
-    });
+    try {
+        await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                content: `📋 **Novo envio de formulário HP** 📋
+
+👤 **Nome:** ${data.nome || "Não informado"}
+🛂 **Passaporte:** ${data.passaporte || "Não informado"}
+🎂 **Idade IRL:** ${data.idade || "Não informado"}
+💬 **Discord:** ${data.discord || "Não informado"}
+🏙️ **Tempo na cidade:** ${data.tempoCidade || "Não informado"}
+📚 **Conhecimentos:** ${data.conhecimentos || "Não informado"}
+🛎️ **Atendimento:** ${data.atendimento || "Não informado"}
+💼 **Experiência:** ${data.experiencia || "Não informado"}
+🎙️ **Microfone:** ${data.microfone || "Não informado"}
+⏰ **Tempo disponível:** ${data.tempoDisponivel || "Não informado"}
+🚗 **CNH:** ${data.cnh || "Não informado"}
+🗓️ **Períodos:** ${data.periodos || "Não informado"}`
+            }),
+        });
 
         res.status(200).json({ message: "Formulário enviado com sucesso!" });
     } catch (err) {
@@ -53,6 +40,7 @@ app.post("/edital", async (req, res) => {
         res.status(500).json({ message: "Erro ao enviar para a webhook." });
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
