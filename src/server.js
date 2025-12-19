@@ -18,20 +18,31 @@ app.post("/edital", async (req, res) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             content: `
-📋 **Novo envio de formulário HP** 📋
-
-👤 **Nome:** ${data.nome}
-🛂 **Passaporte:** ${data.passaporte}
-🎂 **Idade:** ${data.idade}
-💬 **Discord:** ${data.discord}
-🏙️ **Tempo na cidade:** ${data.tempoCidade}
-📚 **Conhecimentos:** ${data.conhecimentos}
-🛎️ **Atendimento:** ${data.atendimento}
-💼 **Experiência:** ${data.experiencia}
-🎙️ **Microfone:** ${data.microfone}
-⏰ **Tempo disponível:** ${data.tempoDisponivel}
-🚗 **CNH:** ${data.cnh}
-🗓️ **Períodos:** ${data.periodos}
+>📋 **Novo envio de formulário HP** 📋
+>
+>👤 **Nome:** ${data.nome}
+>
+>🛂 **Passaporte:** ${data.passaporte}
+>
+>🎂 **Idade:** ${data.idade}
+>
+>💬 **Discord:** ${data.discord}
+>
+>🏙️ **Tempo na cidade:** ${data.tempoCidade}
+>
+>📚 **Conhecimentos:** ${data.conhecimentos}
+>
+>🛎️ **Atendimento:** ${data.atendimento}
+>
+>💼 **Experiência:** ${data.experiencia}
+>
+>🎙️ **Microfone:** ${data.microfone}
+>
+>⏰ **Tempo disponível:** ${data.tempoDisponivel}
+>
+>🚗 **CNH:** ${data.cnh}
+>
+>🗓️ **Períodos:** ${data.periodos}
             `
         }),
     });
