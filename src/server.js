@@ -13,32 +13,39 @@ app.post("/edital", async (req, res) => {
     const data = req.body;
 
     try {
-        await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                content: `📋 **Novo envio de formulário HP** 📋
+    await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            embeds: [
+                {
+                    title: "📋 Novo envio de formulário HP",
+                    color: 0x00ff00, // verde, você pode mudar a cor
+                    fields: [
+                        { name: "Nome", value: data.nome || "Não informado" },
+                        { name: "Passaporte", value: data.passaporte || "Não informado" },
+                        { name: "Idade IRL", value: data.idade || "Não informado", inline: true },
+                        { name: "Discord", value: data.discord || "Não informado", inline: true },
+                        { name: "Tempo na cidade", value: data.tempoCidade || "Não informado" },
+                        { name: "Conhecimentos", value: data.conhecimentos || "Não informado" },
+                        { name: "Atendimento", value: data.atendimento || "Não informado" },
+                        { name: "Experiência", value: data.experiencia || "Não informado" },
+                        { name: "Microfone", value: data.microfone || "Não informado" },
+                        { name: "Disponibilidade", value: data.tempoDisponivel || "Não informado" },
+                        { name: "CNH", value: data.cnh || "Não informado" },
+                        { name: "Períodos", value: data.periodos || "Não informado" },
+                    ],
+                },
+            ],
+        }),
+    });
 
-👤 **Nome:** ${data.nome || "Não informado"}
-🛂 **Passaporte:** ${data.passaporte || "Não informado"}
-🎂 **Idade IRL:** ${data.idade || "Não informado"}
-💬 **Discord:** ${data.discord || "Não informado"}
-🏙️ **Tempo na cidade:** ${data.tempoCidade || "Não informado"}
-📚 **Conhecimentos:** ${data.conhecimentos || "Não informado"}
-🛎️ **Atendimento:** ${data.atendimento || "Não informado"}
-💼 **Experiência:** ${data.experiencia || "Não informado"}
-🎙️ **Microfone:** ${data.microfone || "Não informado"}
-⏰ **Tempo disponível:** ${data.tempoDisponivel || "Não informado"}
-🚗 **CNH:** ${data.cnh || "Não informado"}
-🗓️ **Períodos:** ${data.periodos || "Não informado"}`
-            }),
-        });
+    res.status(200).json({ message: "Formulário enviado com sucesso!" });
+} catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao enviar para a webhook." });
+}
 
-        res.status(200).json({ message: "Formulário enviado com sucesso!" });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: "Erro ao enviar para a webhook." });
-    }
 });
 
 
