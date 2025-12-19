@@ -12,25 +12,27 @@ app.use(express.json());
 app.post("/edital", async (req, res) => {
     const data = req.body;
 
-    try {
+   try {
     await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-             fields: [
-                { name: "👤 Nome", value: data.nome || "Não informado" },
-                { name: "🛂 Passaporte", value: data.passaporte || "Não informado" },
-                { name: "🎂 Idade", value: data.idade || "Não informado", inline: true },
-                { name: "💬 Discord", value: data.discord || "Não informado", inline: true },
-                { name: "🏙️ Tempo na cidade", value: data.tempoCidade || "Não informado" },
-                { name: "📚 Conhecimentos", value: data.conhecimentos || "Não informado" },
-                { name: "🛎️ Atendimento", value: data.atendimento || "Não informado" },
-                { name: "💼 Experiência", value: data.experiencia || "Não informado" },
-                { name: "🎙️ Microfone", value: data.microfone || "Não informado", inline: true },
-                { name: "⏰ Tempo disponível", value: data.tempoDisponivel || "Não informado", inline: true },
-                { name: "🚗 CNH", value: data.cnh || "Não informado" },
-                { name: "🗓️ Períodos", value: data.periodos || "Não informado" },
-            ],
+            content: `
+📋 **Novo envio de formulário HP** 📋
+
+👤 **Nome:** ${data.nome}
+🛂 **Passaporte:** ${data.passaporte}
+🎂 **Idade:** ${data.idade}
+💬 **Discord:** ${data.discord}
+🏙️ **Tempo na cidade:** ${data.tempoCidade}
+📚 **Conhecimentos:** ${data.conhecimentos}
+🛎️ **Atendimento:** ${data.atendimento}
+💼 **Experiência:** ${data.experiencia}
+🎙️ **Microfone:** ${data.microfone}
+⏰ **Tempo disponível:** ${data.tempoDisponivel}
+🚗 **CNH:** ${data.cnh}
+🗓️ **Períodos:** ${data.periodos}
+            `
         }),
     });
 
