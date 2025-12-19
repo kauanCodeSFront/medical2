@@ -17,10 +17,11 @@ app.post("/edital", async (req, res) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+            content: "<@&1451411420359954482>", // menção ao cargo
             embeds: [
                 {
                     title: "📋 Novo envio de formulário HP",
-                    color: 0x00ff00, // verde, você pode mudar a cor
+                    color: 0x00ff00, // verde
                     fields: [
                         { name: "Nome", value: data.nome || "Não informado" },
                         { name: "Passaporte", value: data.passaporte || "Não informado" },
