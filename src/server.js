@@ -13,25 +13,26 @@ app.post("/edital", async (req, res) => {
     const data = req.body;
 
     try {
-    const embed = {
-        title: "📋 Novo envio de formulário HP",
-        color: 0x00ff99, // Verde suave
-        fields: [
-            { name: "👤 Nome", value: data.nome || "Não informado" },
-            { name: "🛂 Passaporte", value: data.passaporte || "Não informado" },
-            { name: "🎂 Idade", value: data.idade || "Não informado", inline: true },
-            { name: "💬 Discord", value: data.discord || "Não informado", inline: true },
-            { name: "🏙️ Tempo na cidade", value: data.tempoCidade || "Não informado" },
-            { name: "📚 Conhecimentos", value: data.conhecimentos || "Não informado" },
-            { name: "🛎️ Atendimento", value: data.atendimento || "Não informado" },
-            { name: "💼 Experiência", value: data.experiencia || "Não informado" },
-            { name: "🎙️ Microfone", value: data.microfone || "Não informado", inline: true },
-            { name: "⏰ Tempo disponível", value: data.tempoDisponivel || "Não informado", inline: true },
-            { name: "🚗 CNH", value: data.cnh || "Não informado" },
-            { name: "🗓️ Períodos", value: data.periodos || "Não informado" },
-        ],
-        timestamp: new Date().toISOString(),
-    };
+    await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+             fields: [
+                { name: "👤 Nome", value: data.nome || "Não informado" },
+                { name: "🛂 Passaporte", value: data.passaporte || "Não informado" },
+                { name: "🎂 Idade", value: data.idade || "Não informado", inline: true },
+                { name: "💬 Discord", value: data.discord || "Não informado", inline: true },
+                { name: "🏙️ Tempo na cidade", value: data.tempoCidade || "Não informado" },
+                { name: "📚 Conhecimentos", value: data.conhecimentos || "Não informado" },
+                { name: "🛎️ Atendimento", value: data.atendimento || "Não informado" },
+                { name: "💼 Experiência", value: data.experiencia || "Não informado" },
+                { name: "🎙️ Microfone", value: data.microfone || "Não informado", inline: true },
+                { name: "⏰ Tempo disponível", value: data.tempoDisponivel || "Não informado", inline: true },
+                { name: "🚗 CNH", value: data.cnh || "Não informado" },
+                { name: "🗓️ Períodos", value: data.periodos || "Não informado" },
+            ],
+        }),
+    });
 
         res.status(200).json({ message: "Formulário enviado com sucesso!" });
     } catch (err) {
