@@ -51,11 +51,6 @@ function EditalMain() {
         </label>
 
         <label>
-          Passaporte (ID in game):
-          <input name="passaporte" placeholder="Digite seu passaporte" className="input" required />
-        </label>
-
-        <label>
           Idade (IRL):
           <input name="idade" placeholder="Digite sua idade" type="number" className="input" required />
         </label>
@@ -102,11 +97,6 @@ function EditalMain() {
           <label>
             Tempo disponível para trabalhar (horas/dia):
             <input name="tempoDisponivel" placeholder="Ex: 2h por dia" required />
-          </label>
-
-          <label>
-            Possui CNH? Se sim, qual:
-            <input name="cnh" placeholder="Digite sua CNH" />
           </label>
 
           <label>
